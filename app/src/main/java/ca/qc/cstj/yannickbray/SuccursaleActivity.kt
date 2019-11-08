@@ -3,8 +3,14 @@ package ca.qc.cstj.yannickbray
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import ca.qc.cstj.yannickbray.adapters.SuccursaleRecyclerViewAdapter
 import ca.qc.cstj.yannickbray.models.Succursale
+import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.fuel.json.responseJson
+import com.github.kittinunf.result.Result
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.list
 
 class SuccursaleActivity : AppCompatActivity() {
 
@@ -15,18 +21,25 @@ class SuccursaleActivity : AppCompatActivity() {
         setContentView(R.layout.fragment_home)
 
         rcvSuccursale.layoutManager = LinearLayoutManager(this)
-     //   loadSuccursales()
+        loadSuccursales()
 
     }
-/*
+
     private fun loadSuccursales() {
-        Services.SUCCURSALES_API_URL.httpGet().responseJson{
-
-
+        Services.SUCCURSALES_API_URL.httpGet().responseJson{_, _, result ->
+            when(result) {
+                is Result.Success -> {
+                    succursales = Json.nonstrict.parse(Succursale.serializer().list, result.value.content)
+                    rcvSuccursale.adapter = SuccursaleRecyclerViewAdapter(succursales)
+                    rcvSuccursale.adapter!!.notifyDataSetChanged()
+                }
+                is Result.Failure -> {
+                    toast(result.toString())
+                }
+            }
         }
-
     }
-*/
+
 
 
 }
