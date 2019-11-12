@@ -4,7 +4,7 @@ class Services {
     companion object {
         // URL A
         // Toutes succursales
-        val SUCCURSALES_API_URL = "localhost:4500/livres/succursales"
+        val SUCCURSALES_API_URL = "http://10.0.2.2:4500/livres/succursales"
 
         // URL B
         // Toutes catégorie

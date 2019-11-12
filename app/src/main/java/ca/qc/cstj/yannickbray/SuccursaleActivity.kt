@@ -1,5 +1,7 @@
 package ca.qc.cstj.yannickbray
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +24,6 @@ class SuccursaleActivity : AppCompatActivity() {
 
         rcvSuccursale.layoutManager = LinearLayoutManager(this)
         loadSuccursales()
-
     }
 
     private fun loadSuccursales() {
@@ -40,6 +41,10 @@ class SuccursaleActivity : AppCompatActivity() {
         }
     }
 
-
-
+    companion object {
+        fun newIntent(context: Context, username: String) : Intent {
+            val intent = Intent(context, SuccursaleActivity::class.java)
+            return intent
+        }
+    }
 }
