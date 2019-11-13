@@ -27,35 +27,26 @@ import kotlinx.serialization.list
 class HomeFragment : Fragment() {
 /*
     private lateinit var homeViewModel: HomeViewModel
-
+*/
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
         return root
     }
 
-*/
-/*
     private var succursales = listOf<Succursale>()
 
-    override fun onCreate(savedInstanceState: Bundle?){
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_home)
 
-        rcvSuccursale.layoutManager = LinearLayoutManager(this)
+        rcvSuccursale.layoutManager = LinearLayoutManager(this.context)
+        rcvSuccursale.adapter = SuccursaleRecyclerViewAdapter(succursales)
         loadSuccursales()
     }
 
     private fun loadSuccursales() {
+
         Services.SUCCURSALES_API_URL.httpGet().responseJson{ _, _, result ->
             when(result) {
                 is Result.Success -> {
@@ -78,5 +69,5 @@ class HomeFragment : Fragment() {
     }
 
 
- */
+
 }
