@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 
 import ca.qc.cstj.yannickbray.R
+import ca.qc.cstj.yannickbray.toast
+import kotlinx.android.synthetic.main.fragment_detail_succursale.*
 
 class DetailSuccursaleFragment : Fragment() {
 
@@ -22,5 +24,14 @@ class DetailSuccursaleFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_detail_succursale, container, false)
     }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
+
+        super.onViewCreated(view, savedInstanceState)
+
+        txvAdresse.text = (args.succursale.addresse)
+
+
+    }
 
 }
