@@ -23,8 +23,8 @@
     <fragment
         android:id="@+id/detailSuccursaleFragment"
         android:name="ca.qc.cstj.yannickbray.ui.succursale.DetailSuccursaleFragment"
-        android:label="fragment_detail_succursale"
-        tools:layout="@layout/fragment_detail_succursale" >
+        android:label="Succursale"
+        tools:layout="@layout/fragment_detail_succursale">
         <argument
             android:name="succursale"
             app:argType="ca.qc.cstj.yannickbray.models.Succursale" />

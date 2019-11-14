@@ -29,7 +29,15 @@ class DetailSuccursaleFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
 
+        txvVilleAppelatif.text = (args.succursale.ville + " : " + args.succursale.appelatif).toUpperCase()
         txvAdresse.text = (args.succursale.addresse)
+        txvCodePostal.text = (args.succursale.codePostal)
+
+        txvTel.text = ("Téléphone :" + args.succursale.telephone)
+        txvFax.text = ("Télécopieur : " + args.succursale.telecopieur)
+
+        txvInfo.text = (args.succursale.information)
+
 
 
     }
