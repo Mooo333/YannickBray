@@ -2,6 +2,7 @@ package ca.qc.cstj.yannickbray.ui.succursale
 
 
 import android.os.Bundle
+import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -30,13 +31,16 @@ class DetailSuccursaleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         txvVilleAppelatif.text = (args.succursale.ville + " : " + args.succursale.appelatif).toUpperCase()
+        txvEmplacement.text = (args.succursale.ville + " (" + args.succursale.province + ") ")
         txvAdresse.text = (args.succursale.addresse)
         txvCodePostal.text = (args.succursale.codePostal)
 
         txvTel.text = ("Téléphone :" + args.succursale.telephone)
         txvFax.text = ("Télécopieur : " + args.succursale.telecopieur)
 
-        txvInfo.text = (args.succursale.information)
+        //Html.fromHtml(args.succursale.information, 1).toString()
+
+        txvInfo.text =   args.succursale.information
 
 
 
