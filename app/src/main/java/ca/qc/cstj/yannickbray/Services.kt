@@ -8,7 +8,7 @@ class Services {
 
         // URL B
         // Toutes catégorie
-        val CATEGORIES_API_URL = "localhost:4500/livres/categories"
+        val CATEGORIES_API_URL = "http://10.0.2.2:4500/livres/categories"
 
         // URL C
 

@@ -12,14 +12,18 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_nav_home_to_detailSuccursaleFragment"
-            app:destination="@id/detailSuccursaleFragment" />
+            app:destination="@+id/detailSuccursaleFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="ca.qc.cstj.yannickbray.ui.gallery.GalleryFragment"
         android:label="@string/menu_categorie"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_nav_gallery_to_nav_livres"
+            app:destination="@id/nav_livres" />
+    </fragment>
     <fragment
         android:id="@+id/detailSuccursaleFragment"
         android:name="ca.qc.cstj.yannickbray.ui.succursale.DetailSuccursaleFragment"
@@ -28,5 +32,14 @@
         <argument
             android:name="succursale"
             app:argType="ca.qc.cstj.yannickbray.models.Succursale" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_livres"
+        android:name="ca.qc.cstj.yannickbray.nav_livres"
+        android:label="fragment_nav_livres2"
+        tools:layout="@layout/fragment_nav_livres2" >
+        <argument
+            android:name="categorie"
+            app:argType="ca.qc.cstj.yannickbray.models.Categorie" />
     </fragment>
 </navigation>
