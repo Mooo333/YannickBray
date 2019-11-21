@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.succursale.DetailSuccursaleFragment">
+
+    <TextView
+        android:id="@+id/txvVilleAppelatif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="VILLE : APPELATIF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txvAdresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Adresse"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txvEmplacement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvVilleAppelatif" />
+
+    <TextView
+        android:id="@+id/txvEmplacement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Emplacement"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txvCodePostal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvAdresse" />
+
+    <TextView
+        android:id="@+id/txvCodePostal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="Code postal"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txvTel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvEmplacement" />
+
+    <TextView
+        android:id="@+id/txvTel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Téléphone"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txvFax"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvCodePostal" />
+
+    <TextView
+        android:id="@+id/txvFax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="Télécopieur"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txvInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvTel" />
+
+    <TextView
+        android:id="@+id/txvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:padding="15dp"
+        android:text="Information"
+        android:textSize="18sp"
+        android:lines="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvFax" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

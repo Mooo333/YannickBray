@@ -9,11 +9,24 @@
         android:id="@+id/nav_home"
         android:name="ca.qc.cstj.yannickbray.ui.home.HomeFragment"
         android:label="@string/menu_succursale"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_detailSuccursaleFragment"
+            app:destination="@id/detailSuccursaleFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="ca.qc.cstj.yannickbray.ui.gallery.GalleryFragment"
         android:label="@string/menu_categorie"
         tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/detailSuccursaleFragment"
+        android:name="ca.qc.cstj.yannickbray.ui.succursale.DetailSuccursaleFragment"
+        android:label="Succursale"
+        tools:layout="@layout/fragment_detail_succursale">
+        <argument
+            android:name="succursale"
+            app:argType="ca.qc.cstj.yannickbray.models.Succursale" />
+    </fragment>
 </navigation>

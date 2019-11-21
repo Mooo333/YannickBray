@@ -5,10 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import ca.qc.cstj.yannickbray.R
 import ca.qc.cstj.yannickbray.models.Succursale
 import ca.qc.cstj.yannickbray.toast
+import ca.qc.cstj.yannickbray.ui.home.HomeFragment
+import ca.qc.cstj.yannickbray.ui.home.HomeFragmentDirections
+import ca.qc.cstj.yannickbray.ui.succursale.DetailSuccursaleFragment
 import kotlinx.android.synthetic.main.item_ville_succursales.view.*
 
 class SuccursaleRecyclerViewAdapter(private val values: List<Succursale>) : RecyclerView.Adapter<SuccursaleRecyclerViewAdapter.ViewHolder>(){
@@ -27,8 +31,8 @@ class SuccursaleRecyclerViewAdapter(private val values: List<Succursale>) : Recy
             view.tag = item
             view.setOnClickListener {
                 val succursale = it.tag as Succursale
-                //Toast.makeText(it.context, planet.name, Toast.LENGTH_LONG).show()
-                it.context.toast(succursale.ville)
+                val direction = HomeFragmentDirections.actionNavHomeToDetailSuccursaleFragment(item)
+                it.findNavController().navigate(direction)
             }
             bind(item)
         }
