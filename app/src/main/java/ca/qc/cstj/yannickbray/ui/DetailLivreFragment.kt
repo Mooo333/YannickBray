@@ -46,17 +46,17 @@ class DetailLivreFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = args.Livre.titre
 
         txvPrix.text = (args.Livre.prix + "$")
-        txvAuteur.text = (args.Livre.Auteur)
-        txvCategorie.text = (args.Livre.categorie.categorie)
+        txvAuteur.text = (args.Livre.auteur)
+        txvCategorie.text = (args.Livre.categorie)
         txvISBN.text = ("ISBN: " + args.Livre.ISBN)
 
         loadCommentaires()
     }
 
         private fun loadCommentaires(){
-            val Commentaire = args.Livre.Commetaire
+            val commentaire = args.Livre.commentaires
 
-            rcvCommentaire.adapter = CommentaireRecyclerViewAdapter(Commentaire)
+            rcvCommentaire.adapter = CommentaireRecyclerViewAdapter(commentaire)
             rcvCommentaire.adapter!!.notifyDataSetChanged()
         }
 

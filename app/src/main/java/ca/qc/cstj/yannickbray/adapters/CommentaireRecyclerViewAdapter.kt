@@ -31,7 +31,7 @@ class CommentaireRecyclerViewAdapter(private val values: List<Commentaire>) : Re
         with(holder) {
             view.tag = item
             view.setOnClickListener {
-                val Commentaire = it.tag as Commentaire
+                val commentaire = it.tag as Commentaire
             }
             bind(item)
         }
@@ -43,11 +43,11 @@ class CommentaireRecyclerViewAdapter(private val values: List<Commentaire>) : Re
         private val txvDate: TextView = view.txvDate!!
         private val rtbEval: RatingBar = view.rtbEval!!
 
-        fun bind(Commentaire: Commentaire){
-            txvNom.text = Commentaire.Nom
-            txvCommentaire.text = Commentaire.Message
-            txvDate.text = Commentaire.Date
-            rtbEval.rating = Commentaire.Etoile.toFloat()
+        fun bind(commentaire: Commentaire){
+            txvNom.text = commentaire.nom
+            txvCommentaire.text = commentaire.message
+            txvDate.text = commentaire.dateCommentaire
+            rtbEval.rating = commentaire.etoile.toFloat()
 
 
 
