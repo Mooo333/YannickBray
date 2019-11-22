@@ -57,6 +57,7 @@ class GalleryFragment : Fragment() {
         }
     }
 
+
     companion object {
         fun newIntent(context: Context, username: String) : Intent {
             val intent = Intent(context, GalleryFragment::class.java)

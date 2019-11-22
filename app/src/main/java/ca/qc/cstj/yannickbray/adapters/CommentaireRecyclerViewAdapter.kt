@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -38,9 +39,17 @@ class CommentaireRecyclerViewAdapter(private val values: List<Commentaire>) : Re
 
     inner class ViewHolder(val view: View) :RecyclerView.ViewHolder(view) {
         private val txvNom: TextView = view.txvNom!!
+        private val txvCommentaire: TextView = view.txvCommentaire!!
+        private val txvDate: TextView = view.txvDate!!
+        private val rtbEval: RatingBar = view.rtbEval!!
 
         fun bind(Commentaire: Commentaire){
             txvNom.text = Commentaire.Nom
+            txvCommentaire.text = Commentaire.Message
+            txvDate.text = Commentaire.Date
+            rtbEval.rating = Commentaire.Etoile.toFloat()
+
+
 
         }
     }
