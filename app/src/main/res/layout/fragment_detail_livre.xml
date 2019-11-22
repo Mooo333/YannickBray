@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,6 +27,7 @@
                     android:layout_height="156dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:contentDescription="@string/img"
                     android:src="@android:drawable/ic_menu_report_image"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Prix"
+                    android:text="@string/str_price"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView2"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Auteur"
+                    android:text="@string/str_auteur"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView2"
                     app:layout_constraintTop_toBottomOf="@+id/txvPrix" />
@@ -56,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Catégorie"
+                    android:text="@string/str_categorie"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView2"
                     app:layout_constraintTop_toBottomOf="@+id/txvAuteur" />
@@ -66,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="ISBN"
+                    android:text="@string/str_isbn"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView2"
                     app:layout_constraintTop_toBottomOf="@+id/txvCategorie" />
@@ -88,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="Commentaire"
+                    android:text="@string/txt_comment"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -98,6 +99,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_marginTop="8dp"
+                    android:contentDescription="@string/img"
                     android:src="@android:color/background_dark"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -131,7 +133,7 @@
                         android:id="@+id/inCom"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Commentaire" />
+                        android:hint="@string/txt_comment" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <RatingBar
@@ -145,7 +147,7 @@
                     android:id="@+id/btnAjouterCom"
                     android:layout_width="111dp"
                     android:layout_height="61dp"
-                    android:text="Ajouter"
+                    android:text="@string/btn_ajouter"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/rtbAjoutRate" />
@@ -157,7 +159,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:hint="Votre Nom"
+                    android:hint="@string/input_nom_hint"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rcvCommentaire" />

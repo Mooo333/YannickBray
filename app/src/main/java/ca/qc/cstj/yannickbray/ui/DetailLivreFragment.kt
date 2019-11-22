@@ -22,7 +22,7 @@ import java.nio.charset.Charset
 class DetailLivreFragment : Fragment() {
 
     private val args:DetailLivreFragmentArgs by navArgs()
-    private var theBook:Livre? = null
+    private var commentaire = listOf<Commentaire>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +38,7 @@ class DetailLivreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = args.Livre.titre
 
-        theBook = args.Livre
+        commentaire = args.Livre.commentaires.sortedWith(compareByDescending { it.dateCommentaire })
 
         txvPrix.text = (args.Livre.prix + "$")
         txvAuteur.text = (args.Livre.auteur)
@@ -50,13 +50,12 @@ class DetailLivreFragment : Fragment() {
         }
 
         rcvCommentaire.layoutManager = LinearLayoutManager(this.context)
-        rcvCommentaire.adapter = CommentaireRecyclerViewAdapter(args.Livre.commentaires)
+        rcvCommentaire.adapter = CommentaireRecyclerViewAdapter(commentaire)
 
         loadCommentaires()
     }
 
         private fun loadCommentaires(){
-            val commentaire = args.Livre.commentaires
 
             rcvCommentaire.adapter = CommentaireRecyclerViewAdapter(commentaire)
             rcvCommentaire.adapter!!.notifyDataSetChanged()
@@ -65,8 +64,8 @@ class DetailLivreFragment : Fragment() {
     private fun postComment(){
         var stringUrlAPI = args.Livre.href + "/commentaires"
 
-        var author = tinNom.editText?.text.toString()
-        var message = tinCom.editText?.text.toString()
+        var author = inNom.text.toString()
+        var message = inCom.text.toString()
         var nbEtoile = rtbAjoutRate.rating.toString()
 
         var comment = Commentaire(author,null,message,nbEtoile)
@@ -77,7 +76,8 @@ class DetailLivreFragment : Fragment() {
             .responseJson(){ request,response,result ->
                 when(result) {
                     is Result.Success -> {
-                        theBook = Json.nonstrict.parse(Livre.serializer(), result.value.content)
+                        val theBook = Json.nonstrict.parse(Livre.serializer(), result.value.content)
+                        commentaire = theBook.commentaires.sortedWith(compareByDescending { it.dateCommentaire })
                     }
                 }
             }

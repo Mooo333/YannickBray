@@ -6,6 +6,16 @@
     <string name="nav_header_subtitle">Meilleur revendeur de livre</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="img">Une image</string>
+    <string name="str_price">Prix</string>
+    <string name="str_auteur">Auteur</string>
+    <string name="str_categorie">Catégorie</string>
+    <string name="str_isbn">ISBN</string>
+    <string name="btn_ajouter">Ajouter</string>
+    <string name="txt_comment">Commentaire</string>
+
+    <!-- Détails livre -->
+    <string name="input_nom_hint">Votre nom</string>
 
     <string name="menu_succursale">Succursales</string>
     <string name="menu_categorie">Catégories</string>
