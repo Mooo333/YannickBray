@@ -46,7 +46,7 @@ class GalleryFragment : Fragment() {
         Services.CATEGORIES_API_URL.httpGet().responseJson{_,_,result ->
             when(result) {
                 is Result.Success -> {
-                    categories = Json.nonstrict.parse(Categorie.serializer().list, result.value.content)
+                    categories = Json.nonstrict.parse(Categorie.serializer().list, result.value.content).distinct()
                     rcvCategorie.adapter = CategorieRecyclerViewAdapter(categories)
                     rcvCategorie.adapter!!.notifyDataSetChanged()
                 }

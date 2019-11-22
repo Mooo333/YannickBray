@@ -36,8 +36,8 @@
     <fragment
         android:id="@+id/nav_livres"
         android:name="ca.qc.cstj.yannickbray.nav_livres"
-        android:label="fragment_nav_livres2"
-        tools:layout="@layout/fragment_nav_livres2" >
+        android:label="fragment_nav_livres"
+        tools:layout="@layout/fragment_nav_livres" >
         <argument
             android:name="categorie"
             app:argType="ca.qc.cstj.yannickbray.models.Categorie" />
