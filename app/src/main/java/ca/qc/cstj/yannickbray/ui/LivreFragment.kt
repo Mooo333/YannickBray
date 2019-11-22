@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import ca.qc.cstj.yannickbray.R
 import ca.qc.cstj.yannickbray.Services
@@ -32,18 +34,22 @@ class LivreFragment : Fragment() {
     }
 
     private var livres = listOf<Livre>()
+    private val args:LivreFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         rcvLivres.layoutManager = LinearLayoutManager(this.context)
         rcvLivres.adapter = LivreRecyclerViewAdapter(livres)
+
+        (activity as AppCompatActivity).supportActionBar?.title = args.categorie.categorie
+
         loadLivres()
     }
 
     private fun loadLivres() {
-
-        Services.LIVRE_API_URL.httpGet().responseJson{_,_,result ->
+        var stringUrlAPI = Services.LIVRE_API_URL + "?categorie=" + args.categorie.categorie
+        stringUrlAPI.httpGet().responseJson{_,_,result ->
             when(result) {
                 is Result.Success -> {
                     livres = Json.nonstrict.parse(Livre.serializer().list, result.value.obj()["results"].toString())
