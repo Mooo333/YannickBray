@@ -3,6 +3,7 @@ package ca.qc.cstj.yannickbray.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
@@ -20,6 +21,7 @@ class CommentaireRecyclerViewAdapter(private val values: List<Commentaire>) : Re
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_commentaires, parent, false)
+
         return ViewHolder(view)
     }
 
