@@ -41,5 +41,17 @@
         <argument
             android:name="categorie"
             app:argType="ca.qc.cstj.yannickbray.models.Categorie" />
+        <action
+            android:id="@+id/action_nav_livres_to_detail_livre"
+            app:destination="@+id/detail_livre" />
+    </fragment>
+    <fragment
+        android:id="@+id/detail_livre"
+        android:name="ca.qc.cstj.yannickbray.ui.DetailLivreFragment"
+        android:label="fragment_detail_livre"
+        tools:layout="@layout/fragment_detail_livre" >
+        <argument
+            android:name="Livre"
+            app:argType="ca.qc.cstj.yannickbray.models.Livre" />
     </fragment>
 </navigation>
