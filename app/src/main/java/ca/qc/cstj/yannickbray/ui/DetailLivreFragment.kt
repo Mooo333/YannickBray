@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import ca.qc.cstj.yannickbray.R
 import ca.qc.cstj.yannickbray.Services
@@ -49,6 +51,9 @@ class DetailLivreFragment : Fragment() {
         txvAuteur.text = (args.Livre.auteur)
         txvCategorie.text = (args.Livre.categorie)
         txvISBN.text = ("ISBN: " + args.Livre.ISBN)
+
+        rcvCommentaire.layoutManager = LinearLayoutManager(this.context)
+        rcvCommentaire.adapter = CommentaireRecyclerViewAdapter(args.Livre.commentaires)
 
         loadCommentaires()
     }

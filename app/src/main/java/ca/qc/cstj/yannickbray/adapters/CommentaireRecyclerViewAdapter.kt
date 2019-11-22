@@ -30,9 +30,7 @@ class CommentaireRecyclerViewAdapter(private val values: List<Commentaire>) : Re
 
         with(holder) {
             view.tag = item
-            view.setOnClickListener {
-                val commentaire = it.tag as Commentaire
-            }
+
             bind(item)
         }
     }
