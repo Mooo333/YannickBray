@@ -11,6 +11,7 @@ class Services {
         val CATEGORIES_API_URL = "http://10.0.2.2:4500/livres/categories"
 
         // URL C
+        val LIVRE_API_URL = "http://10.0.2.2:4500/livres/"
 
     }
 }

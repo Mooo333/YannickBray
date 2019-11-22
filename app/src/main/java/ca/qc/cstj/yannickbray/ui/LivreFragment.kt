@@ -1,4 +1,4 @@
-package ca.qc.cstj.yannickbray.ui.gallery
+package ca.qc.cstj.yannickbray.ui
 
 import android.content.Context
 import android.content.Intent
@@ -10,45 +10,45 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ca.qc.cstj.yannickbray.R
 import ca.qc.cstj.yannickbray.Services
-import ca.qc.cstj.yannickbray.adapters.CategorieRecyclerViewAdapter
-import ca.qc.cstj.yannickbray.models.Categorie
+import ca.qc.cstj.yannickbray.adapters.LivreRecyclerViewAdapter
+import ca.qc.cstj.yannickbray.models.Livre
 import ca.qc.cstj.yannickbray.toast
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.fuel.json.responseJson
 import com.github.kittinunf.result.Result
-import kotlinx.android.synthetic.main.fragment_gallery.*
+import kotlinx.android.synthetic.main.fragment_nav_livres.*
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.list
 
-class GalleryFragment : Fragment() {
+class LivreFragment : Fragment() {
     /*
         private lateinit var homeViewModel: HomeViewModel
     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
+        val root = inflater.inflate(R.layout.fragment_nav_livres, container, false)
         return root
     }
 
-    private var categories = listOf<Categorie>()
+    private var livres = listOf<Livre>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        rcvCategorie.layoutManager = LinearLayoutManager(this.context)
-        rcvCategorie.adapter = CategorieRecyclerViewAdapter(categories)
-        loadCategories()
+        rcvLivres.layoutManager = LinearLayoutManager(this.context)
+        rcvLivres.adapter = LivreRecyclerViewAdapter(livres)
+        loadLivres()
     }
 
-    private fun loadCategories() {
+    private fun loadLivres() {
 
-        Services.CATEGORIES_API_URL.httpGet().responseJson{_,_,result ->
+        Services.LIVRE_API_URL.httpGet().responseJson{_,_,result ->
             when(result) {
                 is Result.Success -> {
-                    categories = Json.nonstrict.parse(Categorie.serializer().list, result.value.content).distinct()
-                    rcvCategorie.adapter = CategorieRecyclerViewAdapter(categories)
-                    rcvCategorie.adapter!!.notifyDataSetChanged()
+                    livres = Json.nonstrict.parse(Livre.serializer().list, result.value.obj()["results"].toString())
+                    rcvLivres.adapter = LivreRecyclerViewAdapter(livres)
+                    rcvLivres.adapter!!.notifyDataSetChanged()
                 }
                 is Result.Failure -> {
                     toast(result.toString())
@@ -57,10 +57,9 @@ class GalleryFragment : Fragment() {
         }
     }
 
-
     companion object {
         fun newIntent(context: Context, username: String) : Intent {
-            val intent = Intent(context, GalleryFragment::class.java)
+            val intent = Intent(context, LivreFragment::class.java)
             return intent
         }
     }
