@@ -78,6 +78,8 @@ class DetailLivreFragment : Fragment() {
                     is Result.Success -> {
                         val theBook = Json.nonstrict.parse(Livre.serializer(), result.value.content)
                         commentaire = theBook.commentaires.sortedWith(compareByDescending { it.dateCommentaire })
+
+                        loadCommentaires()
                     }
                 }
             }
